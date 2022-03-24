@@ -7,8 +7,7 @@ const Category = require('./Category');
 // Products belongsTo Category
 Product.belongsTo(Category, {
   foreignKey: 'category_id',
-  // category_id is nullabale. remember to do outer join
-  onDelete: 'SET NULL',
+  onDelete: 'CASCADE',
 });
 
 // Categories have many Products
@@ -19,7 +18,6 @@ Category.hasMany(Product, {
 // setting many to many (product <-> tag) through product_tag
 Product.belongsToMany(Tag, {
   through: ProductTag,
-  // as: 'product_tags',
   foreignKey: 'product_id',
 });
 
