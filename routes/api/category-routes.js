@@ -13,7 +13,8 @@ router.get('/:id', async (req, res) => {
     });
     res.status(200).json(categoryData);
   } catch(err) {
-      res.status(500).json(err);
+      console.log(err);
+      res.status(500).json('Unable to find category.');
   }
 });
 
@@ -24,7 +25,8 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(categoryData);
   } catch(err) {
-      res.status(500).json(err);
+      console.log(err);
+      res.status(500).json('Unable to find categories.');
   }
 });
 
@@ -33,8 +35,9 @@ router.post('/', async (req, res) => {
     const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
   } catch(err) {
-      res.status(500).json(err);
-  }
+      console.log(err);
+      res.status(500).json('Unable to save category.');
+}
 });
 
 router.put('/:id', async (req, res) => {
@@ -51,7 +54,8 @@ router.put('/:id', async (req, res) => {
     res.status(200).json(categoryData);
   }
   catch(err) {
-    res.status(500).json(err);
+      console.log(err);
+      res.status(500).json('Unable to update category.');
   }
 });
 
@@ -66,7 +70,8 @@ router.delete('/:id', async (req, res) => {
     const categoryData = await Category.findAll({ include: [Product], });
     return categoryData;
   } catch {
-      res.status(500).json(err);
+      console.log(err);
+      res.status(500).json('Unable to delete category.');
   }
 });
 

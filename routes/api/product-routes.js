@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
     res.status(200).json(producData);
   }
   catch (err) {
-    res.status(500).json(err);
+      console.log(err);
+      res.status(500).json('Unable to find products.');
   }
 });
 
@@ -43,21 +44,13 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(productData.get({ plain: true }));
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    res.status(500).json('Unable to find product.');
   }
 });
 
 // create new product
 router.post('/', async (req, res) => {
-  /* req.body should look like this...
-     {
-      "product_name": "Basketball",
-      "price": 200.00,
-      "stock": 3,
-      "category_id": 1,
-      "tagIds": [1, 2, 3, 4]
-    }
-  */
   try {
     const productData = await Product.create(req.body);
     if (!productData) {
@@ -80,7 +73,8 @@ router.post('/', async (req, res) => {
 
     res.status(200).json(newProductData);
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json('Unable to save product.');
   }
 });
 
@@ -110,7 +104,8 @@ router.put('/:id', async (req, res) => {
 
     res.status(200).json(upadatedProductData);
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json('Unable to update product.');
   }
 });
 
@@ -124,7 +119,8 @@ router.delete('/:id', async (req, res) => {
     });
     res.status(200).json(`${numProducts} products deleted`);
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err);
+    res.status(500).json('Unable to delete product.');
   }
 });
 
