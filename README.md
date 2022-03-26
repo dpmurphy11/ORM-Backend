@@ -49,8 +49,8 @@ THEN the user is able to successfully create, update, and delete data in the dat
 ### Screenshot
 ![Application screenshot](./assets/orm_backend.png)
 ### Repository: <https://github.com/dpmurphy11/ORM-Backend>
-### Demo Video 1: <https://drive.google.com/file/d/1uCrgmX0ZUObcxuqu2c_LGq4yxlLiaeCb/view?usp=sharing>
-### Demo Video 2: <https://drive.google.com/file/d/12irqsKaTyfVr2tXCzLRQsHiA_aUU7Yjp/view?usp=sharing>
+### Demo Video 1: <https://drive.google.com/file/d/1fULD3f36gejxr774et23Djcyyq684XZI/view?usp=sharing>
+### Demo Video 2: <https://drive.google.com/file/d/1RGYMaB3e4EJCjqhqweKQzPcJWJMo4XQ8/view?usp=sharing>
 ### Questions
   If you have any questions about the repo, open an issue or contact me at dpmurphy_onsite@hotmail.com
   Visit my GitHub profile at [dpmurphy11](https://github.com/dpmurphy11/).

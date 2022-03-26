@@ -14,12 +14,16 @@ router.get('/', async (req, res) => {
           through: ProductTag,
         },
       ],
-    })
+    });
+    if (!producData) {
+      res.status(404).json({ message: 'No products found.' });
+      return;
+    }
     res.status(200).json(producData);
   }
   catch (err) {
       console.log(err);
-      res.status(500).json('Unable to find products.');
+      res.status(500).json('Internal server error.');
   }
 });
 
@@ -45,7 +49,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(productData.get({ plain: true }));
   } catch (err) {
     console.log(err);
-    res.status(500).json('Unable to find product.');
+    res.status(500).json('Internal server error.');
   }
 });
 

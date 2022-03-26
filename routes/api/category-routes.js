@@ -11,6 +11,10 @@ router.get('/:id', async (req, res) => {
       },
       include: [Product],
     });
+    if (!categoryData) {
+      res.status(404).json({ message: 'No categories found.' });
+      return;
+    }
     res.status(200).json(categoryData);
   } catch(err) {
       console.log(err);
@@ -23,6 +27,10 @@ router.get('/', async (req, res) => {
     const categoryData = await Category.findAll({
       include: [Product],
     });
+    if (!categoryData) {
+      res.status(404).json({ message: 'No category found.' });
+      return;
+    }
     res.status(200).json(categoryData);
   } catch(err) {
       console.log(err);

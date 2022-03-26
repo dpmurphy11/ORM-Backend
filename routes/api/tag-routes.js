@@ -8,6 +8,10 @@ router.get('/', async (req, res) => {
     const tagData = await Tag.findAll({
       include: [{ model: Product, through: ProductTag, },],
     });
+    if (!tagData) {
+      res.status(404).json({ message: 'No tags found.' });
+      return;
+    }
     res.status(200).json(tagData)
   } catch (err) {
       console.log(err);
@@ -20,6 +24,10 @@ router.get('/:id', async (req, res) => {
     const tagData = await Tag.findOne({
       where: { id: req.params.id, }, include: [{ model: Product, through: ProductTag, },],
     });
+    if (!tagData) {
+      res.status(404).json({ message: 'No tag found.' });
+      return;
+    }
     res.status(200).json(tagData);
   } catch (err) {
     console.log(err);
